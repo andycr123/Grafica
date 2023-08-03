@@ -1,45 +1,17 @@
 <!DOCTYPE html>
-<div id="container"></div>
-<script type="module">
-    
-
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
-
-
-const width = 640;
-const height = 400;
-const marginTop = 20;
-const marginRight = 20;
-const marginBottom = 30;
-const marginLeft = 40;
-
-
-const x = d3.scaleUtc()
-    .domain([new Date("2023-01-01"), new Date("2024-01-01")])
-    .range([marginLeft, width - marginRight]);
-
-
-const y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([height - marginBottom, marginTop]);
-
-
-const svg = d3.create("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-
-svg.append("g")
-    .attr("transform", `translate(0,${height - marginBottom})`)
-    .call(d3.axisBottom(x));
-
-
-svg.append("g")
-    .attr("transform", `translate(${marginLeft},0)`)
-    .call(d3.axisLeft(y));
-
-
-container.append(svg.node());
-
-</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <svg id='canvas'>
+        <text id='title' x='450' y='30'>USA GDP</text>
+    </svg>
+</body>
+<script defer src='/script.js'></script>
+<script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script>
+</html>
